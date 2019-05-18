@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "v1.0.0-WD",
+  "name": "hello-kubecon-demo1",
+  "description": "Simple Go CNAB example",
+  "version": "0.1.0",
+  "invocationImages": [
+    {
+      "digest": "sha256:babec59f85f49bee419fae6d4c5e57f1ef2a2a9a3c2bd2ff334e0382b25accc1",
+      "image": "ccrone/kubecon-eu-19:demo1-installer",
+      "imageType": "docker"
+    }
+  ],
+  "maintainers": [
+    {
+      "email": "christopher.crone@docker.com",
+      "name": "Chris Crone"
+    }
+  ]
+}

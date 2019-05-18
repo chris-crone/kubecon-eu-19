@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "v1.0.0-WD",
+  "name": "hello-kubecon-demo2",
+  "description": "Install OpenFaaS and a function",
+  "version": "0.1.0",
+  "invocationImages": [
+    {
+      "digest": "sha256:a0fbf47bd390de81412d2f583d84e7a95e9af3ddcef3dadd1a0c975780d5b568",
+      "image": "ccrone/kubecon-eu-19:demo2-installer",
+      "imageType": "docker"
+    }
+  ],
+  "images": {
+    "openfaas/gateway:0.12.0": {
+      "imageType": "docker",
+      "image": "openfaas/gateway:0.12.0",
+      "digest": "sha256:a1a19f3ae5ec22736c3bfc8bc015ac1e37b000331d78060ad682a2185f0fa426"
+    },
+    "openfaas/faas-swarm:0.6.1": {
+      "imageType": "docker",
+      "image": "openfaas/faas-swarm:0.6.1",
+      "digest": "sha256:c6851433586ee8ff51869137e134a748978908873b2e3acdf1813d0f6cffd2fc"
+    },
+    "nats-streaming:0.11.2": {
+      "imageType": "docker",
+      "image": "nats-streaming:0.11.2",
+      "digest": "sha256:d70706ce2e92efa6daa193731cd3aec98aedf3c15c51c2cf5b7a6bbc80a43044"
+    },
+    "openfaas/queue-worker:0.7.1": {
+      "imageType": "docker",
+      "image": "openfaas/queue-worker:0.7.1",
+      "digest": "sha256:efc7f915afae3ab6a5db47188bb5d9a588f2c153d6d92529c3246e29f08b9d24"
+    },
+    "prom/prometheus:v2.7.1": {
+      "imageType": "docker",
+      "image": "prom/prometheus:v2.7.1",
+      "digest": "sha256:b32864cfe5f7f5d146820ddc6dcc5f78f40d8ab6d55e80decd5fc222b16344dc"
+    },
+    "prom/alertmanager:v0.16.1": {
+      "imageType": "docker",
+      "image": "prom/alertmanager:v0.16.1",
+      "digest": "sha256:cd4948a7cd6aa518b00f7624fbeefad42e01010f8707dc9605496dcc2c1e5f2a"
+    },
+    "python:3-alpine": {
+      "imageType": "docker",
+      "image": "python:3-alpine",
+      "digest": "sha256:006edc76c0cfcd946a35353d3ad58336623b4c4228b71ad2a3c6ce8a90fb0414"
+    }
+  },
+  "credentials": {
+    "basic-auth-user": {
+      "path": "/basic-auth-user.txt"
+    },
+    "basic-auth-password": {
+      "path": "/basic-auth-password.txt"
+    }
+  },
+  "parameters": {
+    "gateway": {
+      "defaultValue": "http://172.17.0.1:8080",
+      "destination": {
+        "env": "GATEWAY"
+      },
+      "description": "The OpenFaaS gateway address",
+      "type": "string"
+    },
+    "image-map": {
+      "defaultValue": "false",
+      "destination": {
+        "env": "IMAGE_MAP"
+      },
+      "description": "Print the image map on install",
+      "type": "string"
+    }
+  },
+  "maintainers": [
+    {
+      "email": "christopher.crone@docker.com",
+      "name": "Chris Crone"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+provider:
+  name: faas
+  gateway: ${GATEWAY}
+
+functions:
+  echo-py:
+    lang: python3
+    handler: /cnab/app/functions/echo-py
+    image: echo-py
